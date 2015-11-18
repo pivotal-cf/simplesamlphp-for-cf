@@ -1,8 +1,8 @@
 ---
 applications:
-- name: simplesamlphp
+- name: ops-manager-saml
   memory: 128M
   instances: 1
-  host: simplesamlphp
+  host: ops-manager-saml
   path: .
   buildpack: https://github.com/cf-identity/php-buildpack.git

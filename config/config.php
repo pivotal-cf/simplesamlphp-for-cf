@@ -75,7 +75,7 @@ $config = array(
      * metadata listing and diagnostics pages.
      * You can also put a hash here; run "bin/pwgen.php" to generate one.
      */
-    'auth.adminpassword' => 'fluffykerberos',
+    'auth.adminpassword' => 'pizza9pixel',
     'admin.protectindexpage' => false,
     'admin.protectmetadata' => false,
 
@@ -94,8 +94,8 @@ $config = array(
      * The email address will be used as the recipient address for error reports, and
      * also as the technical contact in generated metadata.
      */
-    'technicalcontact_name' => 'Filip Hanik',
-    'technicalcontact_email' => 'fhanik@pivotal.io',
+    'technicalcontact_name' => 'CF Ops Manager',
+    'technicalcontact_email' => 'cf-tempest-eng@pivotal.io',
 
     /*
      * The timezone of the server. This option should be set to the timezone you want

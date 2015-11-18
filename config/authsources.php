@@ -92,47 +92,19 @@ $config = array(
         'remember.username.enabled' => TRUE,
         'remember.username.checked' => TRUE,
 
-        'marissa:koala' => array(
-            'uid' => 'marissa@test.org',
-            'eduPersonAffiliation' => array('member', 'marissa'),
-            'emailAddress' => 'marissa@test.org'
+        'admin:password' => array(
+            'uid' => 'admin@test.org',
+            'emailAddress' => 'admin@test.org'
         ),
 
-        'marissa2:saml2' => array(
-            'uid' => 'marissa2@test.org',
-            'eduPersonAffiliation' => array('member', 'marissa2'),
-            'emailAddress' => 'marissa2@test.org'
+        'user:password' => array(
+            'uid' => 'user@test.org',
+            'emailAddress' => 'user@test.org'
         ),
 
-        'marissa3:saml2' => array(
-            'uid' => 'marissa3@test.org',
-            'eduPersonAffiliation' => array('member', 'marissa3'),
-            'emailAddress' => 'marissa3@test.org'
-        ),
-
-        'marissa4:saml2' => array(
-            'uid' => 'marissa4',
-            'eduPersonAffiliation' => array('member', 'marissa4'),
-            'emailAddress' => 'marissa4@test.org',
-            'groups' => array('saml.user', 'saml.admin'),
-        ),
-
-        'marissa5:saml5' => array(
-            'uid' => 'marissa5',
-            'eduPersonAffiliation' => array('member', 'marissa5'),
-            'emailAddress' => 'marissa5@test.org',
-            'groups' => array('saml.user', 'saml.admin'),
-            'costCenter' => 'Denver,CO',
-            'manager' => array('John the Sloth', 'Kari the Ant Eater'),
-        ),
-
-        'user_only_for_invitations_test:saml' => array(
-            'uid' => 'user_only_for_invitations_test',
-            'eduPersonAffiliation' => array('member', 'user_only_for_invitations_test'),
-            'emailAddress' => 'testinvite@test.org',
-            'groups' => array('saml.user', 'saml.admin'),
-            'costCenter' => 'Denver,CO',
-            'manager' => array('John the Sloth', 'Kari the Ant Eater'),
+        'nobody:password' => array(
+            'uid' => 'nobody@test.org',
+            'emailAddress' => 'nobody@test.org'
         ),
     ),
 
