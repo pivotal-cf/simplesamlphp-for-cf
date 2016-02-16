@@ -1,8 +1,0 @@
----
-applications:
-- name: ops-manager-saml
-  memory: 128M
-  instances: 1
-  host: ops-manager-saml
-  path: .
-  buildpack: https://github.com/cf-identity/php-buildpack.git
