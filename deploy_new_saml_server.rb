@@ -25,7 +25,13 @@ $metadata['opsman-login'] = array(
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
-PHP
+
+$metadata['bosh-uaa'] = array(
+    'AssertionConsumerService' => 'https://#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
+    'SingleLogoutService' => 'https://#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
 
 name = prompt "What name should this be pushed to pws as: "
 if name.length == 0
