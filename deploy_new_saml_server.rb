@@ -27,8 +27,8 @@ $metadata['opsman-login'] = array(
 );
 
 $metadata['bosh-uaa'] = array(
-    'AssertionConsumerService' => 'https://#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
-    'SingleLogoutService' => 'https://#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
+    'AssertionConsumerService' => '#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
+    'SingleLogoutService' => '#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
