@@ -32,6 +32,7 @@ $metadata['bosh-uaa'] = array(
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
+PHP
 
 name = prompt "What name should this be pushed to pws as: "
 if name.length == 0
