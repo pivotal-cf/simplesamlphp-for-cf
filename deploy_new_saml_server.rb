@@ -42,6 +42,6 @@ end
 
 prompt "Hit return to cf push #{name} to your default space and credentials. "
 
-run "cf push #{name} -m 128M -b https://github.com/cf-identity/php-buildpack.git"
+run "cf push #{name} -n #{name} -m 128M -b https://github.com/cf-identity/php-buildpack.git"
 run 'git checkout metadata/saml20-sp-remote.php'
 
