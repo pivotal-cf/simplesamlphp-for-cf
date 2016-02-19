@@ -15,17 +15,18 @@ puts "Welcome #{`whoami`.strip}! Please make sure you have cf setup and logged i
 puts
 
 opsman_ip = prompt "What IP or hostname (with https and port) would you like this SAML server to accept traffic from? "
+bosh_ip = prompt "What IP or hostname (with https and port) would you like this SAML server to accept BOSH director traffic from? Leave this empty if the director has not been deployed yet. "
 
-File.write('metadata/saml20-sp-remote.php', <<-PHP)
-<?php
-
+opsman_metadata = <<-PHP
 $metadata['opsman-login'] = array(
     'AssertionConsumerService' => '#{opsman_ip}/uaa/saml/SSO/alias/opsman-login',
     'SingleLogoutService' => '#{opsman_ip}/uaa/saml/SSO/alias/opsman-login',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
+PHP
 
+bosh_metadata = <<-PHP
 $metadata['bosh-uaa'] = array(
     'AssertionConsumerService' => '#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
     'SingleLogoutService' => '#{bosh_ip}:8443/saml/SSO/alias/bosh-uaa',
@@ -33,6 +34,11 @@ $metadata['bosh-uaa'] = array(
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 PHP
+
+metadata_file = '<?php' + "\n\n" + opsman_metadata + "\n\n"
+metadata_file += bosh_metadata unless bosh_ip.empty?
+
+File.write('metadata/saml20-sp-remote.php', metadata_file)
 
 name = prompt "What name should this be pushed to pws as: "
 if name.length == 0
