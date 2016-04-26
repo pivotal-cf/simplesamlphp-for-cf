@@ -10,3 +10,7 @@ This is NOT the official repository of the SimpleSAMLphp software.
 This is a code fork for the simplesamlphp in it's configured, ready to deploy to Cloud Foundry format.
 
 This is used for the PCF Ops Manager team for development purposes.
+
+
+User login: admin / password
+Admin login: admin / pizza9pixel
