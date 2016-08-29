@@ -28,7 +28,7 @@ bosh_entity_alias = URI(bosh_url).host
 opsman_metadata = <<-PHP
 $metadata['#{opsman_entity_id}'] = array(
     'AssertionConsumerService' => '#{opsman_url}/uaa/saml/SSO/alias/#{opsman_entity_alias}',
-    'SingleLogoutService' => '#{opsman_url}/uaa/saml/SSO/alias/#{opsman_entity_alias}',
+    'SingleLogoutService' => '#{opsman_url}/uaa/saml/SingleLogout/alias/#{opsman_entity_alias}',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
@@ -37,7 +37,7 @@ PHP
 bosh_metadata = <<-PHP
 $metadata['#{bosh_entity_id}'] = array(
     'AssertionConsumerService' => '#{bosh_url}/saml/SSO/alias/#{bosh_entity_alias}',
-    'SingleLogoutService' => '#{bosh_url}/saml/SSO/alias/#{bosh_entity_alias}',
+    'SingleLogoutService' => '#{bosh_url}/saml/SingleLogout/alias/#{bosh_entity_alias}',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
