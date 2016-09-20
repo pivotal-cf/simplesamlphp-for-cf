@@ -16,8 +16,10 @@ puts
 puts "Welcome #{`whoami`.strip}! Please make sure you have cf setup and logged in."
 puts
 
-opsman_url = prompt "What IP or hostname (with scheme and port) would you like this SAML server to accept traffic from? "
-bosh_url = prompt "What IP or hostname (with scheme and port which is usually https and 8443) would you like this SAML server to accept BOSH director traffic from? Leave this empty if the director has not been deployed yet. "
+puts 'We need to know the locations of your Ops Manager and BOSH director UAAs...'
+opsman_url = prompt "What is the scheme, host and port of your Ops Manager's UAA? (default is 'http://localhost:8080') "
+opsman_url = 'http://localhost:8080' if opsman_url.empty?
+bosh_url = prompt "What is the scheme, host and port of your BOSH director's UAA? (usually 'https://DIRECTOR_IP:8443'). Leave this empty if the director has not been deployed yet. "
 
 opsman_entity_id = opsman_url + '/uaa'
 bosh_entity_id = bosh_url
@@ -48,15 +50,14 @@ metadata_file += bosh_metadata unless bosh_url.empty?
 
 File.write('metadata/saml20-sp-remote.php', metadata_file)
 
-name = prompt "What name should this be pushed to pws as: "
+name = prompt 'App name on PWS: '
 if name.length == 0
-  puts "Aborting."
+  puts 'Aborting.'
   run 'git checkout metadata/saml20-sp-remote.php'
   exit
 end
 
-prompt "Hit return to cf push #{name} to your default space and credentials. "
+prompt "Hit ENTER to cf push #{name}. "
 
 run "cf push #{name} -n #{name} -m 128M -b https://github.com/cf-identity/php-buildpack.git"
 run 'git checkout metadata/saml20-sp-remote.php'
-
