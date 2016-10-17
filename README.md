@@ -12,5 +12,5 @@ This is a code fork for the simplesamlphp in it's configured, ready to deploy to
 This is used for the PCF Ops Manager team for development purposes.
 
 
-User login: admin / password
+User login: admin / password <br>
 Admin login: admin / pizza9pixel
