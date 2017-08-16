@@ -53,7 +53,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplesamlphp/xmlseclibs/zipball/9c40e9ebd753af89062fe972d4ec0d3e4a5569d9",
+                "url": "https://api.github.com/repos/robrichards/xmlseclibs/zipball/9c40e9ebd753af89062fe972d4ec0d3e4a5569d9",
                 "reference": "9c40e9ebd753af89062fe972d4ec0d3e4a5569d9",
                 "shasum": ""
             },

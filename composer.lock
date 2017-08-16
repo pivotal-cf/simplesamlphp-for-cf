@@ -151,7 +151,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplesamlphp/xmlseclibs/zipball/734e80899ade295b979de08553161cad63c2dd98",
+                "url": "https://api.github.com/repos/robrichards/xmlseclibs/zipball/734e80899ade295b979de08553161cad63c2dd98",
                 "reference": "734e80899ade295b979de08553161cad63c2dd98",
                 "shasum": ""
             },
