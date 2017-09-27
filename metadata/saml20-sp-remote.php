@@ -1,8 +1,8 @@
 <?php
 
-$metadata['opsman-login'] = array(
-    'AssertionConsumerService' => 'http://localhost:8080/uaa/saml/SSO/alias/opsman-login',
-    'SingleLogoutService' => 'http://localhost:8080/uaa/saml/SSO/alias/opsman-login',
+$metadata['http://localhost:8080/uaa'] = array(
+    'AssertionConsumerService' => 'http://localhost:8080/uaa/saml/SSO/alias/localhost',
+    'SingleLogoutService' => 'http://localhost:8080/uaa/saml/SSO/alias/localhost',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );

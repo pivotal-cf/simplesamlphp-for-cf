@@ -94,17 +94,20 @@ $config = array(
 
         'admin:password' => array(
             'uid' => 'admin@test.org',
-            'emailAddress' => 'admin@test.org'
+            'emailAddress' => 'admin@test.org',
+            'snack-groups' => array('pretzel-admins', 'dark chocolate-eaters'),
         ),
 
         'user:password' => array(
             'uid' => 'user@test.org',
-            'emailAddress' => 'user@test.org'
+            'emailAddress' => 'user@test.org',
+            'snack-groups' => array('pretzel-eaters', 'apple-eaters'),
         ),
 
         'nobody:password' => array(
             'uid' => 'nobody@test.org',
-            'emailAddress' => 'nobody@test.org'
+            'emailAddress' => 'nobody@test.org',
+            'snack-groups' => array('apple-eaters'),
         ),
     ),
 

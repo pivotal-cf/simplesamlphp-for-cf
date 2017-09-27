@@ -756,6 +756,6 @@ $config = array(
      * Example:
      *   'trusted.url.domains' => array('sp.example.com', 'app.example.com'),
      */
-    'trusted.url.domains' => array('localhost', '10.244.0.34.xip.io'),
+    'trusted.url.domains' => array('localhost', '10.244.0.34.xip.io', '127.0.0.1:5000', 'localhost:5000'),
 
 );
