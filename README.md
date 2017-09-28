@@ -30,10 +30,10 @@ php -S 127.0.0.1:5000
 If you need to change the port to something other than `5000`, you will need to add your domain to `trusted.url.domains` in config/config.php.
 
 
-The IDP metadata is in the Federation tab. If you followed the above set up, here it is for quick reference: `http://127.0.0.1:5000/saml2/idp/metadata.php`
+The IDP metadata is in the Federation tab. If you followed the above set up, here it is for quick reference: http://127.0.0.1:5000/saml2/idp/metadata.php
 
 
 #### For testing groups
 
-There is a groups attribute called `snack-groups`. Look in config/authsources.php for group definitions for each user.
-The `admin:password` user is the only member of a group called `pretzel-admins`. 
+There is a groups attribute called `snack-groups`. Look in [config/authsources.php](https://github.com/pivotal-cf-experimental/simplesamlphp-for-cf/blob/master/config/authsources.php#L95) for group definitions for each user.
+The `admin` user (with passsword `password`) is the only member of a group called `pretzel-admins`. 
