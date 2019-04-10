@@ -8,5 +8,4 @@ $baseDir = dirname($vendorDir);
 return array(
     'SimpleSAML_' => array($baseDir . '/lib'),
     'SAML2_' => array($vendorDir . '/simplesamlphp/saml2/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log'),
 );

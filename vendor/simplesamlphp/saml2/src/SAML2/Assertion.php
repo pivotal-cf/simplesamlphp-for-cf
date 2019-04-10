@@ -49,11 +49,11 @@ class SAML2_Assertion implements SAML2_SignedElement
     /**
      * The encrypted Attributes.
      *
-     * If this is not NULL, the Attributes needs decryption before it can be accessed.
+     * If this is not NULL, these Attributes need decryption before they can be accessed.
      *
      * @var DOMElement[]|NULL
      */
-    private $encryptedAttribute;
+    private $encryptedAttributes;
 
     /**
      * Private key we should use to encrypt the attributes.
@@ -199,6 +199,11 @@ class SAML2_Assertion implements SAML2_SignedElement
     private $SubjectConfirmation;
 
     /**
+     * @var bool
+     */
+    protected $wasSignedAtConstruction = FALSE;
+
+    /**
      * Constructor for SAML 2 assertions.
      *
      * @param DOMElement|NULL $xml The input assertion.
@@ -207,9 +212,9 @@ class SAML2_Assertion implements SAML2_SignedElement
     public function __construct(DOMElement $xml = NULL)
     {
         $this->id = SAML2_Utils::getContainer()->generateId();
-        $this->issueInstant = time();
+        $this->issueInstant = SAML2_Utilities_Temporal::getTime();
         $this->issuer = '';
-        $this->authnInstant = time();
+        $this->authnInstant = SAML2_Utilities_Temporal::getTime();
         $this->attributes = array();
         $this->nameFormat = SAML2_Const::NAMEFORMAT_UNSPECIFIED;
         $this->certificates = array();
@@ -499,7 +504,7 @@ class SAML2_Assertion implements SAML2_SignedElement
      */
     private function parseEncryptedAttributes(DOMElement $xml)
     {
-        $this->encryptedAttribute = SAML2_Utils::xpQuery(
+        $this->encryptedAttributes = SAML2_Utils::xpQuery(
             $xml,
             './saml_assertion:AttributeStatement/saml_assertion:EncryptedAttribute'
         );
@@ -515,6 +520,7 @@ class SAML2_Assertion implements SAML2_SignedElement
         /* Validate the signature element of the message. */
         $sig = SAML2_Utils::validateElement($xml);
         if ($sig !== FALSE) {
+            $this->wasSignedAtConstruction = TRUE;
             $this->certificates = $sig['Certificates'];
             $this->signatureData = $sig;
         }
@@ -649,11 +655,7 @@ class SAML2_Assertion implements SAML2_SignedElement
      */
     public function isNameIdEncrypted()
     {
-        if ($this->encryptedNameId !== NULL) {
-            return TRUE;
-        }
-
-        return FALSE;
+        return $this->encryptedNameId !== NULL;
     }
 
     /**
@@ -664,7 +666,7 @@ class SAML2_Assertion implements SAML2_SignedElement
     public function encryptNameId(XMLSecurityKey $key)
     {
         /* First create a XML representation of the NameID. */
-        $doc = new DOMDocument();
+        $doc = SAML2_DOMDocumentFactory::create();
         $root = $doc->createElement('root');
         $doc->appendChild($root);
         SAML2_Utils::addNameId($root, $this->nameId);
@@ -709,6 +711,16 @@ class SAML2_Assertion implements SAML2_SignedElement
     }
 
     /**
+     * Did this Assertion contain encrypted Attributes?
+     *
+     * @return bool
+     */
+    public function hasEncryptedAttributes()
+    {
+        return $this->encryptedAttributes !== NULL;
+    }
+
+    /**
      * Decrypt the assertion attributes.
      *
      * @param XMLSecurityKey $key
@@ -717,11 +729,11 @@ class SAML2_Assertion implements SAML2_SignedElement
      */
     public function decryptAttributes(XMLSecurityKey $key, array $blacklist = array())
     {
-        if ($this->encryptedAttribute === NULL) {
+        if ($this->encryptedAttributes === NULL) {
             return;
         }
         $firstAttribute = TRUE;
-        $attributes = $this->encryptedAttribute;
+        $attributes = $this->encryptedAttributes;
         foreach ($attributes as $attributeEnc) {
             /*Decrypt node <EncryptedAttribute>*/
             $attribute = SAML2_Utils::decryptElement(
@@ -1204,6 +1216,14 @@ class SAML2_Assertion implements SAML2_SignedElement
     }
 
     /**
+     * @return bool
+     */
+    public function getWasSignedAtConstruction()
+    {
+        return $this->wasSignedAtConstruction;
+    }
+
+    /**
      * Convert this assertion to an XML element.
      *
      * @param  DOMNode|NULL $parentElement The DOM node the assertion should be created in.
@@ -1212,7 +1232,7 @@ class SAML2_Assertion implements SAML2_SignedElement
     public function toXML(DOMNode $parentElement = NULL)
     {
         if ($parentElement === NULL) {
-            $document = new DOMDocument();
+            $document = SAML2_DOMDocumentFactory::create();
             $parentElement = $document;
         } else {
             $document = $parentElement->ownerDocument;
@@ -1448,7 +1468,7 @@ class SAML2_Assertion implements SAML2_SignedElement
         $root->appendChild($attributeStatement);
 
         foreach ($this->attributes as $name => $values) {
-            $document2 = new DOMDocument();
+            $document2 = SAML2_DOMDocumentFactory::create();
             $attribute = $document2->createElementNS(SAML2_Const::NS_SAML, 'saml:Attribute');
             $attribute->setAttribute('Name', $name);
             $document2->appendChild($attribute);
