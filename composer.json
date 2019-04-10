@@ -22,7 +22,7 @@
         "files": ["lib/_autoload_modules.php"]
     },
     "require": {
-        "php": "~7.2",
+        "php": "~7.1",
         "simplesamlphp/saml2": "~0.8",
         "simplesamlphp/xmlseclibs": "~1.4",
         "openid/php-openid": "~2.3"
