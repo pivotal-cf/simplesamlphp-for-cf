@@ -22,7 +22,7 @@
         },
         "time": "2015-07-30T18:07:43+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "classmap": [
                 "Auth"
