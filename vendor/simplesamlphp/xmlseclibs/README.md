@@ -4,14 +4,9 @@ xmlseclibs is a library written in PHP for working with XML Encryption and Signa
 
 The author of xmlseclibs is Rob Richards.
 
-# Branches
-Both the master and the 1.4 branches are actively maintained. The 1.3 branch is only updated for security related issues.
-* master: Contains namespace support requiring 5.3+.
-* 1.4: Contains auto-loader support while also maintaining backwards compatiblity with the 1.3 version using the xmlseclibs.php file. Supports PHP 5.2+
-
 # Requirements
 
-xmlseclibs requires PHP version 5.2 or greater.
+xmlseclibs requires PHP version 5 or greater.
 
 
 ## How to Install
@@ -28,7 +23,7 @@ php composer.phar require "robrichards/xmlseclibs"
 xmlseclibs is being used in many different software.
 
 * [SimpleSAMLPHP](https://github.com/simplesamlphp/simplesamlphp)
-* [LightSAML](https://github.com/lightsaml/lightsaml)
+* [LightSAML](https://github.com/aerialship/lightsaml)
 
 ## Basic usage
 

@@ -1,28 +1,28 @@
 [
     {
         "name": "openid/php-openid",
-        "version": "2.3.0",
-        "version_normalized": "2.3.0.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/openid/php-openid.git",
-            "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874"
+            "reference": "ee669c6a9d4d95b58ecd9b6945627276807694fb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/openid/php-openid/zipball/924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
-            "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
+            "url": "https://api.github.com/repos/openid/php-openid/zipball/ee669c6a9d4d95b58ecd9b6945627276807694fb",
+            "reference": "ee669c6a9d4d95b58ecd9b6945627276807694fb",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
             "ext-dom": "*",
             "ext-gmp": "*",
-            "php": ">=4.3"
+            "php": ">=5.6"
         },
-        "time": "2015-07-30T18:07:43+00:00",
+        "time": "2018-10-01T13:43:00+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "classmap": [
                 "Auth"
@@ -195,32 +195,29 @@
     },
     {
         "name": "simplesamlphp/xmlseclibs",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
+        "version": "1.3.4",
+        "version_normalized": "1.3.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/simplesamlphp/xmlsec.git",
-            "reference": "79fb5e03c4ee4dc3ec77e4b2628231374364a017"
+            "reference": "b57a1dd3523115e7e61e559f51f241cedca5f2a3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplesamlphp/xmlsec/zipball/79fb5e03c4ee4dc3ec77e4b2628231374364a017",
-            "reference": "79fb5e03c4ee4dc3ec77e4b2628231374364a017",
+            "url": "https://api.github.com/repos/simplesamlphp/xmlsec/zipball/b57a1dd3523115e7e61e559f51f241cedca5f2a3",
+            "reference": "b57a1dd3523115e7e61e559f51f241cedca5f2a3",
             "shasum": ""
-        },
-        "require": {
-            "php": ">= 5.2"
         },
         "suggest": {
             "ext/mcrypt": "MCrypt extension",
             "ext/openssl": "OpenSSL extension"
         },
-        "time": "2016-09-08T13:31:44+00:00",
+        "time": "2015-06-24T14:44:19+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "src/"
+            "files": [
+                "xmlseclibs.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",

@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit1a8c7bd61ceecbc1ac28cfcebcf0f43c
 {
     public static $files = array (
+        'b1782795fb13082dfb7bb09196b4e452' => __DIR__ . '/..' . '/simplesamlphp/xmlseclibs/xmlseclibs.php',
         '5abda994d126976858eb25d2546ee3c9' => __DIR__ . '/../..' . '/lib/_autoload_modules.php',
     );
 
@@ -134,9 +135,9 @@ class ComposerStaticInit1a8c7bd61ceecbc1ac28cfcebcf0f43c
         'Auth_Yadis_Yadis' => __DIR__ . '/..' . '/openid/php-openid/Auth/Yadis/Yadis.php',
         'Auth_Yadis_dom' => __DIR__ . '/..' . '/openid/php-openid/Auth/Yadis/XML.php',
         'Auth_Yadis_domxml' => __DIR__ . '/..' . '/openid/php-openid/Auth/Yadis/XML.php',
-        'XMLSecEnc' => __DIR__ . '/..' . '/simplesamlphp/xmlseclibs/src/XMLSecEnc.php',
-        'XMLSecurityDSig' => __DIR__ . '/..' . '/simplesamlphp/xmlseclibs/src/XMLSecurityDSig.php',
-        'XMLSecurityKey' => __DIR__ . '/..' . '/simplesamlphp/xmlseclibs/src/XMLSecurityKey.php',
+        'XMLSecEnc' => __DIR__ . '/..' . '/robrichards/xmlseclibs/src/XMLSecEnc.php',
+        'XMLSecurityDSig' => __DIR__ . '/..' . '/robrichards/xmlseclibs/src/XMLSecurityDSig.php',
+        'XMLSecurityKey' => __DIR__ . '/..' . '/robrichards/xmlseclibs/src/XMLSecurityKey.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

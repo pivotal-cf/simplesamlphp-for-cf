@@ -101,7 +101,7 @@ return array(
     'Auth_Yadis_Yadis' => $vendorDir . '/openid/php-openid/Auth/Yadis/Yadis.php',
     'Auth_Yadis_dom' => $vendorDir . '/openid/php-openid/Auth/Yadis/XML.php',
     'Auth_Yadis_domxml' => $vendorDir . '/openid/php-openid/Auth/Yadis/XML.php',
-    'XMLSecEnc' => $vendorDir . '/simplesamlphp/xmlseclibs/src/XMLSecEnc.php',
-    'XMLSecurityDSig' => $vendorDir . '/simplesamlphp/xmlseclibs/src/XMLSecurityDSig.php',
-    'XMLSecurityKey' => $vendorDir . '/simplesamlphp/xmlseclibs/src/XMLSecurityKey.php',
+    'XMLSecEnc' => $vendorDir . '/robrichards/xmlseclibs/src/XMLSecEnc.php',
+    'XMLSecurityDSig' => $vendorDir . '/robrichards/xmlseclibs/src/XMLSecurityDSig.php',
+    'XMLSecurityKey' => $vendorDir . '/robrichards/xmlseclibs/src/XMLSecurityKey.php',
 );

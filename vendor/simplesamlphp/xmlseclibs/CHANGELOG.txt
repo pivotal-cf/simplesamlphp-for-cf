@@ -1,35 +1,12 @@
 xmlseclibs.php
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-08, Sep 2016, 1.4.2
-Bug Fixes:
-- Strip whitespace characters when parsing X509Certificate. fixes #84
-  (klemen.bratec)
-- Certificate 'subject' values can be arrays. fixes #80 (Andreas Stangl)
-- HHVM signing node with ID attribute w/out namespace regenerates ID value.
-  fixes #88 (Milos Tomic)
-
-Improvements:
-- Fix typos and add some PHPDoc Blocks. (gfaust-qb)
-- Update lightSAML link. (Milos Tomic)
-- Update copyright dates.
-
-31, Jul 2015, 1.4.1
-Bug Fixes:
-- Allow for large digest values that may have line breaks. fixes #62
-
+24, Jun 2015, 1.3.4
 Features:
 - Support for locating specific signature when multiple exist in 
   document. (griga3k)
 
-Improvements:
-- Add optional argument to XMLSecurityDSig to define the prefix to be used, 
-  also allowing for null to use no prefix, for the dsig namespace. fixes #13
-- Code cleanup
-- Depreciated XMLSecurityDSig::generate_GUID for XMLSecurityDSig::generateGUID
-
-23, Jun 2015, 1.4.0
+2, Jun 2015, 1.3.3
 Features:
-- Support for PSR-0 standard.
 - Support for X509SubjectName. (Milos Tomic)
 - Add HMAC-SHA1 support.
 
