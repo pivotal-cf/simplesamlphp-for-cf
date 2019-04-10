@@ -51,6 +51,38 @@ class SAML2_Const
     * Holder-of-Key subject confirmation method.
     */
     const CM_HOK = 'urn:oasis:names:tc:SAML:2.0:cm:holder-of-key';
+    
+    /**
+     * Vouches subject confirmation method.
+     */
+    const CM_VOUCHES = 'urn:oasis:names:tc:SAML:2.0:cm:sender-vouches';
+
+    /**
+     * Request Authentication Context Comparison indicating that  the resulting authentication context in the
+     * authentication statement MUST be stronger (as deemed by the responder) than any one of the authentication
+     * contexts specified
+     */
+    const COMPARISON_BETTER = 'better';
+
+    /**
+     * Request Authentication Context Comparison indicating that the resulting authentication context in the
+     * authentication statement MUST be the exact match of at least one of the authentication contexts specified
+     */
+    const COMPARISON_EXACT = 'exact';
+
+    /**
+     * Request Authentication Context Comparison indicating that the resulting authentication context in the
+     * authentication statement MUST be as strong as possible (as deemed by the responder) without exceeding the
+     * strength of at least one of the authentication contexts specified.
+     */
+    const COMPARISON_MAXIMUM = 'maximum';
+
+    /**
+     * Request Authentication Context Comparison indicating that he resulting authentication context in the
+     * authentication statement MUST be at least as strong (as deemed by the responder) as one of the authentication
+     * contexts specified.
+     */
+    const COMPARISON_MINIMUM = 'minimum';
 
     /**
      * No claim as to principal consent is being made.
@@ -167,6 +199,12 @@ class SAML2_Const
     const NS_HOK = 'urn:oasis:names:tc:SAML:2.0:profiles:holder-of-key:SSO:browser';
 
     /**
+     * The status namespace
+     */
+    const STATUS_PREFIX = 'urn:oasis:names:tc:SAML:2.0:status:';
+
+    /**
+     * Top-level status code indicating successful processing of the request.
      * The request succeeded. Additional information MAY be returned in the <StatusMessage>
      * and/or <StatusDetail> elements.
      *

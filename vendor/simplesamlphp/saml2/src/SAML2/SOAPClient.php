@@ -91,6 +91,14 @@ class SAML2_SOAPClient
             'stream_context' => $context,
         );
 
+        if ($srcMetadata->hasValue('saml.SOAPClient.proxyhost')) {
+            $options['proxy_host'] = $srcMetadata->getValue('saml.SOAPClient.proxyhost');
+        }
+
+        if ($srcMetadata->hasValue('saml.SOAPClient.proxyport')) {
+            $options['proxy_port'] = $srcMetadata->getValue('saml.SOAPClient.proxyport');
+        }
+
         $x = new SoapClient(NULL, $options);
 
         // Add soap-envelopes
@@ -112,9 +120,10 @@ class SAML2_SOAPClient
         SAML2_Utils::getContainer()->debugMessage($soapresponsexml, 'in');
 
         // Convert to SAML2_Message (DOMElement)
-        $dom = new DOMDocument();
-        if (!$dom->loadXML($soapresponsexml)) {
-            throw new Exception('Not a SOAP response.');
+        try {
+            $dom = SAML2_DOMDocumentFactory::fromString($soapresponsexml);
+        } catch (SAML2_Exception_RuntimeException $e) {
+            throw new Exception('Not a SOAP response.', 0, $e);
         }
 
         $soapfault = $this->getSOAPFault($dom);
