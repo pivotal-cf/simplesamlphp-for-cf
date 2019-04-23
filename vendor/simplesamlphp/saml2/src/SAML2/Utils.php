@@ -207,7 +207,7 @@ class SAML2_Utils
     public static function copyElement(DOMElement $element, DOMElement $parent = NULL)
     {
         if ($parent === NULL) {
-            $document = new DOMDocument();
+            $document = SAML2_DOMDocumentFactory::create();
         } else {
             $document = $parent->ownerDocument;
         }
@@ -495,10 +495,13 @@ class SAML2_Utils
                      'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' .
             $decrypted .
             '</root>';
-        $newDoc = new DOMDocument();
-        if (!@$newDoc->loadXML($xml)) {
-            throw new Exception('Failed to parse decrypted XML. Maybe the wrong sharedkey was used?');
+
+        try {
+            $newDoc = SAML2_DOMDocumentFactory::fromString($xml);
+        } catch (SAML2_Exception_RuntimeException $e) {
+            throw new Exception('Failed to parse decrypted XML. Maybe the wrong sharedkey was used?', 0, $e);
         }
+
         $decryptedElement = $newDoc->firstChild->firstChild;
         if ($decryptedElement === NULL) {
             throw new Exception('Missing encrypted element.');
@@ -530,7 +533,7 @@ class SAML2_Utils
              * reasons we cannot tell the user what failed.
              */
             SAML2_Utils::getContainer()->getLogger()->error('Decryption failed: ' . $e->getMessage());
-            throw new Exception('Failed to decrypt XML element.');
+            throw new Exception('Failed to decrypt XML element.', 0, $e);
         }
     }
 
@@ -673,6 +676,11 @@ class SAML2_Utils
      *  I got this timestamp from Shibboleth 1.3 IdP: 2008-01-17T11:28:03.577Z
      *  Therefore I added to possibility to have microseconds to the format.
      * Added: (\.\\d{1,3})? to the regex.
+     *
+     * Note that we always require a 'Z' timezone for the dateTime to be valid.
+     * This is not in the SAML spec but that's considered to be a bug in the
+     * spec. See https://github.com/simplesamlphp/saml2/pull/36 for some
+     * background.
      *
      * @param string $time The time we should convert.
      * @return int Converted to a unix timestamp.

@@ -33,9 +33,8 @@ class SAML2_UtilsTest extends PHPUnit_Framework_TestCase
      */
     public function testAddString()
     {
-        $document = new DOMDocument();
+        $document = SAML2_DOMDocumentFactory::fromString('<root/>');
 
-        $document->loadXML('<root/>');
         SAML2_Utils::addString(
             $document->firstChild,
             'testns',
@@ -65,9 +64,7 @@ class SAML2_UtilsTest extends PHPUnit_Framework_TestCase
      */
     public function testGetAddStrings()
     {
-        $document = new DOMDocument();
-
-        $document->loadXML('<root/>');
+        $document = SAML2_DOMDocumentFactory::fromString('<root/>');
         SAML2_Utils::addStrings(
             $document->firstChild,
             'testns',
@@ -137,8 +134,7 @@ class SAML2_UtilsTest extends PHPUnit_Framework_TestCase
      */
     public function testExtractString()
     {
-        $document = new DOMDocument();
-        $document->loadXML(
+        $document = SAML2_DOMDocumentFactory::fromString(
             '<root xmlns="' . SAML2_Const::NS_MD . '">'.
             '<somenode>value1</somenode>'.
             '<somenode>value2</somenode>'.
@@ -161,8 +157,7 @@ class SAML2_UtilsTest extends PHPUnit_Framework_TestCase
      */
     public function testExtractLocalizedString()
     {
-        $document = new DOMDocument();
-        $document->loadXML(
+        $document = SAML2_DOMDocumentFactory::fromString(
             '<root xmlns="' . SAML2_Const::NS_MD . '">'.
             '<somenode xml:lang="en">value (en)</somenode>'.
             '<somenode xml:lang="no">value (no)</somenode>'.
@@ -178,5 +173,35 @@ class SAML2_UtilsTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(count($localizedStringValues) === 2);
         $this->assertEquals('value (en)', $localizedStringValues["en"]);
         $this->assertEquals('value (no)', $localizedStringValues["no"]);
+    }
+
+    /**
+     * Test xsDateTime format validity
+     *
+     * @dataProvider xsDateTimes
+     */
+    public function testXsDateTimeToTimestamp($shouldPass, $time, $expectedTs = null)
+    {
+        try {
+            $ts = SAML2_Utils::xsDateTimeToTimestamp($time);
+            $this->assertTrue($shouldPass);
+            $this->assertEquals($expectedTs, $ts);
+        } catch (Exception $e) {
+            $this->assertFalse($shouldPass);
+        }
+    }
+
+    public function xsDateTimes()
+    {
+        return array(
+            array(true, '2015-01-01T00:00:00Z', 1420070400),
+            array(true, '2015-01-01T00:00:00.0Z', 1420070400),
+            array(true, '2015-01-01T00:00:00.1Z', 1420070400),
+            array(false, '2015-01-01T00:00:00', 1420070400),
+            array(false, '2015-01-01T00:00:00.0', 1420070400),
+            array(false, 'junk'),
+            array(false, '2015-01-01T00:00:00-04:00'),
+            array(false, '2015-01-01T00:00:00.0-04:00'),
+        );
     }
 }
