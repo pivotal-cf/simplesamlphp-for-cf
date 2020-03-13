@@ -21,7 +21,7 @@ $config = array(
      * external url, no matter where you come from (direct access or via the
      * reverse proxy).
      */
-    'baseurlpath' => '/',
+    'baseurlpath' => 'https://simplesaml-sfo-devplan.cfapps.io/',
     'certdir' => 'cert/',
     'loggingdir' => 'log/',
     'datadir' => 'data/',
@@ -94,8 +94,8 @@ $config = array(
      * The email address will be used as the recipient address for error reports, and
      * also as the technical contact in generated metadata.
      */
-    'technicalcontact_name' => 'CF Ops Manager',
-    'technicalcontact_email' => 'cf-tempest-eng@pivotal.io',
+    'technicalcontact_name' => 'PCF App SSO',
+    'technicalcontact_email' => 'pcf-app-sso@pivotal.io',
 
     /*
      * The timezone of the server. This option should be set to the timezone you want

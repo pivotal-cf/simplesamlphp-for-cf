@@ -1,0 +1,8 @@
+---
+applications:
+  - name: simplesaml-sfo-devplan
+    memory: 64M
+    disk_quota: 1024M
+    instances: 1
+    buildpacks:
+      - https://github.com/cloudfoundry/php-buildpack.git

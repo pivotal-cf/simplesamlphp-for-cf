@@ -9,8 +9,18 @@ This is NOT the official repository of the SimpleSAMLphp software.
 
 This is a code fork for the simplesamlphp in it's configured, ready to deploy to Cloud Foundry format.
 
-This is used for the PCF Ops Manager team for development purposes.
+This is used for the PCF App SSO team for development purposes. It was forked from the OpsManager team's fork.
+* The App SSO team pushed this app to PWS (api.run.pivotal.io).
+* It is pushed as user pcf-app-sso@pivotal.io (password is in lpass).
+* It runs in the `app-sso` org, in the `development` space.
+* The URL of pushed app: https://simplesaml-sfo-devplan.cfapps.io
+* The Metadata URL of pushed app: https://simplesaml-sfo-devplan.cfapps.io/saml2/idp/metadata.php
+* There is a manifest.yml, so you can re-push this app from the top-level directory of this repo with:
+  1. `cf api api.run.pivotal.io`
+  1. `cf login`
+  1. `cf push`
 
+### Hard-coded users
 
 User login: admin / password <br />
 Additional user login: user / password <br />
@@ -35,5 +45,5 @@ The IDP metadata is in the Federation tab. If you followed the above set up, her
 
 #### For testing groups
 
-There is a groups attribute called `snack-groups`. Look in [config/authsources.php](https://github.com/pivotal-cf-experimental/simplesamlphp-for-cf/blob/master/config/authsources.php#L95) for group definitions for each user.
+There is a groups attribute called `snack-groups`. Look in [config/authsources.php](blob/master/config/authsources.php#L95) for group definitions for each user.
 The `admin` user (with passsword `password`) is the only member of a group called `pretzel-admins`. 
