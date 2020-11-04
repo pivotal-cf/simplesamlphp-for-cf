@@ -13,8 +13,8 @@ This is used for the PCF App SSO team for development purposes. It was forked fr
 * The App SSO team pushed this app to PWS (api.run.pivotal.io).
 * It is pushed as user pcf-app-sso@pivotal.io (password is in lpass).
 * It runs in the `app-sso` org, in the `development` space.
-* The URL of pushed app: https://simplesaml-sfo-devplan.cfapps.io
-* The Metadata URL of pushed app: https://simplesaml-sfo-devplan.cfapps.io/saml2/idp/metadata.php
+* The URL of pushed app: https://simplesaml-sfo-devplan.sfo.identity.team
+* The Metadata URL of pushed app: https://simplesaml-sfo-devplan.sfo.identity.team/saml2/idp/metadata.php
 * There is a manifest.yml, so you can re-push this app from the top-level directory of this repo with:
   1. `cf api api.run.pivotal.io`
   1. `cf login`
