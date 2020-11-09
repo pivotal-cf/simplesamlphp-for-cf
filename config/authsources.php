@@ -101,7 +101,7 @@ $config = array(
         'user:password' => array(
             'uid' => 'user@test.org',
             'emailAddress' => 'user@test.org',
-            'snack-groups' => array('pretzel-eaters', 'apple-eaters'),
+            'snack-groups' => array('pretzel-eaters', 'apple-eaters', 'message.read', 'message.write'),
         ),
 
         'nobody:password' => array(

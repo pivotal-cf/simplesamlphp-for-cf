@@ -24,3 +24,9 @@ $metadata['http://localhost:9000/saml2/service-provider-metadata/okta'] = array(
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
+
+$metadata['http://auth-server:9000/saml2/service-provider-metadata/okta'] = array(
+    'AssertionConsumerService' => 'http://auth-server:9000/login/saml2/sso/okta',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
