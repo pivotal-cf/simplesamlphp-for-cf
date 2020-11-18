@@ -7,7 +7,7 @@ $metadata['dev-plan.login.sfo.identity.team'] = array(
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 
-$metadata['http://dev-sso-auth-server/saml2/service-provider-metadata/okta'] = array(
+$metadata['http://login.dal.identity.team/saml2/service-provider-metadata/okta'] = array(
     'AssertionConsumerService' => 'http://login.dal.identity.team/login/saml2/sso/okta',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
