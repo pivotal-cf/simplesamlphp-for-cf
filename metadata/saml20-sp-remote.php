@@ -13,6 +13,12 @@ $metadata['http://login.dal.identity.team/saml2/service-provider-metadata/okta']
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 
+$metadata['http://login.pdx.identity.team/saml2/service-provider-metadata/okta'] = array(
+    'AssertionConsumerService' => 'http://login.pdx.identity.team/login/saml2/sso/okta',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
+
 $metadata['http://localhost:8080/saml2/service-provider-metadata/okta'] = array(
     'AssertionConsumerService' => 'http://localhost:8080/login/saml2/sso/okta',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
