@@ -13,8 +13,20 @@ $metadata['http://login.dal.identity.team/saml2/service-provider-metadata/simple
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 
+$metadata['https://login.dal.identity.team/saml2/service-provider-metadata/simplesamlphp'] = array(
+    'AssertionConsumerService' => 'https://login.dal.identity.team/login/saml2/sso/simplesamlphp',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
+
 $metadata['http://login.pdx.identity.team/saml2/service-provider-metadata/simplesamlphp'] = array(
     'AssertionConsumerService' => 'http://login.pdx.identity.team/login/saml2/sso/simplesamlphp',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
+
+$metadata['https://login.pdx.identity.team/saml2/service-provider-metadata/simplesamlphp'] = array(
+    'AssertionConsumerService' => 'https://login.pdx.identity.team/login/saml2/sso/simplesamlphp',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     'simplesaml.nameidattribute' => 'emailAddress',
 );
