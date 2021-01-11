@@ -7,36 +7,6 @@ $metadata['dev-plan.login.sfo.identity.team'] = array(
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 
-$metadata['http://login.dal.identity.team/saml2/service-provider-metadata/okta'] = array(
-    'AssertionConsumerService' => 'http://login.dal.identity.team/login/saml2/sso/okta',
-    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    'simplesaml.nameidattribute' => 'emailAddress',
-);
-
-$metadata['http://login.pdx.identity.team/saml2/service-provider-metadata/okta'] = array(
-    'AssertionConsumerService' => 'http://login.pdx.identity.team/login/saml2/sso/okta',
-    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    'simplesaml.nameidattribute' => 'emailAddress',
-);
-
-$metadata['http://localhost:8080/saml2/service-provider-metadata/okta'] = array(
-    'AssertionConsumerService' => 'http://localhost:8080/login/saml2/sso/okta',
-    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    'simplesaml.nameidattribute' => 'emailAddress',
-);
-
-$metadata['http://localhost:9000/saml2/service-provider-metadata/okta'] = array(
-    'AssertionConsumerService' => 'http://localhost:9000/login/saml2/sso/okta',
-    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    'simplesaml.nameidattribute' => 'emailAddress',
-);
-
-$metadata['http://auth-server:9000/saml2/service-provider-metadata/okta'] = array(
-    'AssertionConsumerService' => 'http://auth-server:9000/login/saml2/sso/okta',
-    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    'simplesaml.nameidattribute' => 'emailAddress',
-);
-
 $metadata['http://login.dal.identity.team/saml2/service-provider-metadata/simplesamlphp'] = array(
     'AssertionConsumerService' => 'http://login.dal.identity.team/login/saml2/sso/simplesamlphp',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
