@@ -43,6 +43,18 @@ $metadata['http://localhost:9000/saml2/service-provider-metadata/simplesamlphp']
     'simplesaml.nameidattribute' => 'emailAddress',
 );
 
+$metadata['http://127.0.0.1:8080/saml2/service-provider-metadata/simplesamlphp'] = array(
+    'AssertionConsumerService' => 'http://127.0.0.1:8080/login/saml2/sso/simplesamlphp',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
+
+$metadata['http://127.0.0.1:9000/saml2/service-provider-metadata/simplesamlphp'] = array(
+    'AssertionConsumerService' => 'http://127.0.0.1:9000/login/saml2/sso/simplesamlphp',
+    'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    'simplesaml.nameidattribute' => 'emailAddress',
+);
+
 $metadata['http://auth-server:9000/saml2/service-provider-metadata/simplesamlphp'] = array(
     'AssertionConsumerService' => 'http://auth-server:9000/login/saml2/sso/simplesamlphp',
     'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
